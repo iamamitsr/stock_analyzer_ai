@@ -45,7 +45,6 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Helper Functions
-@st.cache_data(ttl=3600)
 def fetch_stock_data(ticker, period="1y"):
     """Fetch stock data from Yahoo Finance"""
     try:
@@ -241,7 +240,6 @@ def get_trading_signals(df):
         signals.append(f"⚠️ Error analyzing signals: {str(e)}")
         return signals, 0
 
-@st.cache_data(ttl=3600)
 def fetch_news_sentiment(ticker):
     """Fetch news (without sentiment analysis to avoid TextBlob issues)"""
     try:
